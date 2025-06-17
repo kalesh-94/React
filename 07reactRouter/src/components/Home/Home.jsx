@@ -10,7 +10,7 @@ export default function Home() {
                     <div className="max-w-xl sm:mt-1 mt-80 space-y-8 text-center sm:text-right sm:ml-auto">
                         <h2 className="text-4xl font-bold sm:text-5xl">
                             Download Now
-                            <span className="hidden sm:block text-4xl">Lorem Ipsum</span>
+                            <span className="hidden sm:block text-4xl">React Router apk </span>
                         </h2>
 
                         <Link
@@ -41,7 +41,7 @@ export default function Home() {
                 <img className="sm:w-96 w-48" src="https://www.shutterstock.com/shutterstock/photos/2284975487/display_1500/stock-vector-group-of-travelers-is-depicted-around-an-earth-globe-with-various-travel-items-image-promoting-2284975487.jpg" alt="image2" />
             </div>
 
-            <h1 className="text-center text-2xl sm:text-5xl py-10 font-medium">Lorem Ipsum Yojo</h1>
+            <h1 className="text-center text-2xl sm:text-5xl py-10 font-medium">Tourist Spots </h1>
         </div>
     );
 }
