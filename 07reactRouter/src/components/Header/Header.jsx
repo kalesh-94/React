@@ -9,7 +9,7 @@ function Header() {
                     <Link to="/" className="flex items-center">
                         <img
                             src="public\logo.png"
-                            className="mr- h-16"
+                            className="max-h-20"
                             alt="Logo"
                         />
                     </Link>
