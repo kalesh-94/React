@@ -16,7 +16,11 @@ const Card = (props) => {
         <p className='leading-relaxed text-xl pr-10 text-white font-bold text-left'>{props.text}</p>
 
       </div>
-      <button className='text-black ml-2 hover:bg-white flex gap-2 items-center bg-yellow-500 rounded-2xl p-3 text-sm '>{props.btntxt}<BsArrowRightCircleFill className='text-xl' /></button>
+      <button
+      style={{
+        background:props.color
+      }}
+       className='text-black ml-2 hover:bg-white flex gap-2 items-center rounded-2xl p-3 text-sm '>{props.btntxt}<BsArrowRightCircleFill className='text-xl' /></button>
 
     </div>
 

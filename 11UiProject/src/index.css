@@ -3,6 +3,9 @@ html, body, #root {
 }
 
 
+#RightScroll :-webkit-scrollbar{
+  display: none;
+}
 
 @import "tailwindcss";
 
