@@ -82,13 +82,13 @@ const App = () => {
 
       {/* Notes Cards */}
 
-      <div className="flex mt-10 overflow-x-auto">
+      <div className="flex flex-wrap w-screen justify-start ml-5 items-start h-full mt-10 overflow-auto">
         {task.map(function (elem) {
           return (
-            <div className="m-5 h-60 w-45 rounded-md bg-white p-4"> 
-            
-              <h1 className="text-black text-3xl "><NotebookPen color="#000000" /> {elem.title}</h1>
-              <p className="text-black text-xl">{elem.title}</p>
+            <div className="m-4 h-60 w-45 rounded-md bg-white p-4"> 
+              <NotebookPen color="#000000" /> 
+              <h1 className="text-black m-1 text-3xl font-bold">{elem.title}</h1>
+              <p className="text-black m-1 text-lg">{elem.details}</p>
               
 
             </div>
