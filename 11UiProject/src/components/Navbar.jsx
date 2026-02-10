@@ -11,6 +11,7 @@ const Navbar = () => {
         <li>Platform</li>
       </ul>
       
+      
     </div>
   
   )
