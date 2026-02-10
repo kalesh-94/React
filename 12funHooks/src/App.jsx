@@ -1,40 +1,26 @@
 import React from "react";
 import { useState } from "react";
-import {NotebookPen} from "lucide-react";
-
+import { NotebookPen } from "lucide-react";
 
 const App = () => {
-  const data = [
-    { 1: "kalesh" },
-    { 2: "A" },
-    { 3: "B" },
-    { 4: "C" },
-    { 5: "D" },
-    { 5: "D" },
-    { 5: "D" },
-    { 5: "D" },
-  ];
-
-
-
+  
   const [title, settitle] = useState("");
   const [details, setdetails] = useState("");
   const [task, settask] = useState([]);
 
-
   const submitHandler = (e) => {
     e.preventDefault();
 
-    
-    const Copytask = [...task]
-    Copytask.push({title, details})
-    settask(Copytask)
+    const Copytask = [...task];
+    Copytask.push({ id: Date.now(), title, details });
+    settask(Copytask);
     console.log(Copytask);
-    
-  
+    settitle("");
+    setdetails("");
+  };
 
-   
-    
+  const deletHandler = (id) => {
+    settask((prevTask) => prevTask.filter((task) => task.id !== id));
   };
 
   return (
@@ -59,6 +45,7 @@ const App = () => {
                 settitle(e.target.value);
               }}
               value={title}
+              required
             />
 
             <input
@@ -69,34 +56,43 @@ const App = () => {
                 setdetails(e.target.value);
               }}
               value={details}
+              required
             />
           </div>
-          
+
           <button className="mt-7 px-6 py-2 bg-white text-black text-xl rounded-md hover:bg-gray-300 hover:scale-95 transition">
-          Submit
-        </button>
+            Submit
+          </button>
         </form>
-        
-      
       </div>
 
       {/* Notes Cards */}
 
-      <div className="flex flex-wrap w-screen justify-start ml-5 items-start h-full mt-10 overflow-auto">
-        {task.map(function (elem) {
+      <div className="flex flex-wrap w-screen justify-start ml-5 items-start h-full mt-10 overflow-auto leading-tight">
+        {task.map(function (elem, idx) {
           return (
-            <div className="m-4 h-60 w-45 rounded-md bg-white p-4"> 
-              <NotebookPen color="#000000" /> 
-              <h1 className="text-black m-1 text-3xl font-bold">{elem.title}</h1>
+            <div
+              key={elem.id}
+              className="m-4 h-60 w-45 bg-cover rounded-md bg-[url('https://static.vecteezy.com/system/resources/thumbnails/010/793/873/small/a-lined-note-paper-covered-with-transparent-tape-on-a-yellow-background-with-a-white-checkered-pattern-free-png.png')] p-4"
+            >
+              <NotebookPen color="#000000" />
+              <h1 className="text-black m-1 text-3xl font-bold">
+                {elem.title}
+              </h1>
               <p className="text-black m-1 text-lg">{elem.details}</p>
-              
 
+              <button
+                onClick={() => {
+                  deletHandler(elem.id);
+                }}
+                className="ml-12 mt-22 bg-red-500 text-sm p-1 rounded w-auto hover:scale-90 cursor-pointer flex"
+              >
+                Delete
+              </button>
             </div>
           );
         })}
       </div>
-
-
     </div>
   );
 };
